@@ -8,100 +8,103 @@ namespace Itechsup\Form\Widget;
 
 abstract class Widget
 {
-	/**
-	 * @var the type of Widget.
-	 * Custom types can be implemented
-	 */
-	protected $type;
+  /**
+   * @var the type of Widget.
+   * Custom types can be implemented
+   */
+  protected $type;
 
-	/**
-	 * @var the name attribute of the field
-	 */
-	protected $name;
+  /**
+   * @var the name attribute of the field
+   */
+  protected $name;
 
-	/**
-	 * @var the value of the field
-	 */
-	protected $value;
+  /**
+   * @var the value of the field
+   */
+  protected $value;
 
-	/**
-	 * @var array the attributes (class, id, html attributes...)
-	 */
-	protected $attributes = array();
+  /**
+   * @var array the attributes (class, id, html attributes...)
+   */
+  protected $attributes = array();
 
-	/**
-	 * @var the label of the widget
-	 */
-	protected $label;
-	/**
-	 * @param $name
-	 *  The name attribute of the widget
-	 * @param $type
-	 *  The type of the Widget.
-	 * @param null $value
-	 *  (optional) The value
-	 * @param array $attributes
-	 *   (optional) An array of html attributes for the tag
-	 * @throws InvalidArgumentException
-	 *   Thrown if the $type param was not (properly) implemented
-	 */
-	public function __construct($name, $label, $value = null, $attributes = array())
+  /**
+   * @var the label of the widget
+   */
+  protected $label;
+
+  /**
+   * @param $name
+   *  The name attribute of the widget
+   * @param $type
+   *  The type of the Widget.
+   * @param null $value
+   *  (optional) The value
+   * @param array $attributes
+   *   (optional) An array of html attributes for the tag
+   *
+   * @throws InvalidArgumentException
+   *   Thrown if the $type param was not (properly) implemented
+   */
+  public function __construct($name, $label, $value = NULL, $attributes = array())
   {
-		$this->name = $name;
-		$this->label = $label;
-		$this->attributes = $attributes;
-		$this->value = $value;
-	}
-	/**
-	 * @return string
-	 */
-	public function getType()
-  {
-		return $this->type;
-	}
+    $this->name = $name;
+    $this->label = $label;
+    $this->attributes = $attributes;
+    $this->value = $value;
+  }
 
-	/**
-	 * @return string
-	 */
-	public function getName()
+  /**
+   * @return string
+   */
+  public function getType()
   {
-		return $this->name;
-	}
+    return $this->type;
+  }
 
-	/**
-	 * @return mixed
-	 */
-	public function getValue()
+  /**
+   * @return string
+   */
+  public function getName()
   {
-		return $this->value;
-	}
+    return $this->name;
+  }
 
-	/**
-	 * @param mixed $value
-	 */
-	public function setValue($value)
+  /**
+   * @return mixed
+   */
+  public function getValue()
   {
-		$this->value = $value;
-	}
+    return $this->value;
+  }
 
-	/**
-	 * @return array
-	 */
-	public function getAttributes()
+  /**
+   * @param mixed $value
+   */
+  public function setValue($value)
   {
-		return $this->attributes;
-	}
+    $this->value = $value;
+  }
 
-	/**
-	 * @return mixed
-	 */
-	public function getAttribute($attribute)
+  /**
+   * @return array
+   */
+  public function getAttributes()
   {
-		if (array_key_exists($attribute, $this->attributes)) {
-			return $this->attributes[$attribute];
-		}
-		return null;
-	}
+    return $this->attributes;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getAttribute($attribute)
+  {
+    if (array_key_exists($attribute, $this->attributes)) {
+      return $this->attributes[$attribute];
+    }
+    return NULL;
+  }
 
   /**
    * Add an attribute in the $attributes array.
@@ -116,26 +119,30 @@ abstract class Widget
     $this->attributes[$name] = $value;
   }
 
-	/**
-	 * Wraps a HTML element in a div with proper classes for styling.
-	 *
-	 * @param $widgetHtml
-	 *  The HTML of the widget
-	 * @return string
-	 *  Widget HTML wrapped in a div
-	 */
-	protected function wrap($widgetHtml)
+  /**
+   * Wraps a HTML element in a div with proper classes for styling.
+   *
+   * @param $widgetHtml
+   *  The HTML of the widget
+   *
+   * @return string
+   *  Widget HTML wrapped in a div
+   */
+  protected function wrap($widgetHtml)
   {
-		$output = '<div class="form-widget form-widget-' . $this->type . '">';
-		$output .= $this->renderLabel();
-		$output .= $widgetHtml;
-		$output .= '</div>';
+    $output = '<div class="form-widget form-widget-' . $this->type . '">';
 
-		return $output;
-	}
+    $output .= $this->renderLabel();
+
+    $output .= $widgetHtml;
+    $output .= '</div>';
+
+    return $output;
+  }
 
   /**
    * Method to return the label for a widget.
+   *
    * @return string
    *   The HTML label for the widget.
    */

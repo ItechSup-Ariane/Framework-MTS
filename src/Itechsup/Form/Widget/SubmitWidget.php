@@ -18,9 +18,8 @@ class SubmitWidget extends Widget
    *
    * Sets an empty label and a default value.
    */
-  public function __construct($name, $value = 'Valider', $attributes = array())
+  public function __construct($name, $value = 'Valider', $attributes = array(), $label = '')
   {
-    $label = '';
     parent::__construct($name, $label, $value, $attributes);
   }
 
