@@ -8,7 +8,8 @@
 
 namespace Itechsup\Form;
 
-class Form {
+class Form
+{
 
 	/**
 	 * @var the HTML id attribute used to process the form
@@ -38,7 +39,8 @@ class Form {
    * @throws InvalidArgumentException
    *   Thrown if the HTTP method is not valid (not POST nor GET)
    */
-	public function __construct($id, $method = 'POST') {
+	public function __construct($id, $method = 'POST')
+  {
 		$this->id = $id;
 		if (in_array($method, array('GET', 'POST'))) {
 			$this->method = $method;
@@ -54,7 +56,8 @@ class Form {
 	 * @return mixed
 	 *   Return the instance to allow method chaining, or the exception message if the widget type is not valid.
 	 */
-	public function addWidget($widget) {
+	public function addWidget($widget)
+  {
 		$this->widgets[$widget->getName()] = $widget;
 		return $this;
 	}
@@ -64,7 +67,8 @@ class Form {
 	 * @return string
 	 *  The HTML form.
 	 */
-	public function render() {
+	public function render()
+  {
 		$output = '<form id="' . $this->id . '" method="' . $this->method . '">' . "\n";
 
 		if (!empty($this->widgets)) {
@@ -82,7 +86,8 @@ class Form {
    *   An array of key-value pairs containing the user input for the post.
    *   Each key must match with the post's widget name.
    */
-	public function bind(Array $input) {
+	public function bind(Array $input)
+  {
 		foreach ($input as $name => $value) {
 			if (array_key_exists($name, $this->widgets)) {
         // validation here

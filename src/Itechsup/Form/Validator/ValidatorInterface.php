@@ -9,6 +9,7 @@
 namespace Itechsup\Form\Validator;
 
 
-interface ValidatorInterface {
+interface ValidatorInterface
+{
   public function validate($field);
 }

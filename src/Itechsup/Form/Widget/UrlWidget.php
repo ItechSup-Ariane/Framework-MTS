@@ -8,7 +8,8 @@
 
 namespace Itechsup\Form\Widget;
 
-class UrlWidget extends TextWidget {
+class UrlWidget extends TextWidget
+{
 
 	protected $type = 'url';
 

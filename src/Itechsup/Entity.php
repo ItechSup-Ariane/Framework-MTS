@@ -9,15 +9,18 @@
 namespace Itechsup;
 
 
-abstract class Entity {
+abstract class Entity
+{
 
-  public function __construct(Array $options = array()) {
+  public function __construct(Array $options = array())
+  {
     if (!empty($options)) {
       $this->hydrate($options);
     }
   }
 
-  protected function hydrate($options = array()) {
+  protected function hydrate($options = array())
+  {
     foreach ($options as $name => $value) {
       $setter = 'set' . ucfirst($name);
       if (method_exists(get_class($this), $setter)) {

@@ -9,7 +9,8 @@
 namespace Itechsup\Form\Widget;
 
 
-class PostcodeWidget extends TextWidget {
+class PostcodeWidget extends TextWidget
+{
 
   /**
    * @return \Itechsup\Form\Widget\HTML

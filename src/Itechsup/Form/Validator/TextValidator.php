@@ -9,7 +9,8 @@
 namespace Itechsup\Form\Validator;
 
 
-class TextValidator implements ValidatorInterface {
+class TextValidator implements ValidatorInterface
+{
 
   /**
    * Validates a string value.
@@ -20,7 +21,8 @@ class TextValidator implements ValidatorInterface {
    * @return bool
    *   Whether the value is valid.
    */
-  public function validate($value) {
+  public function validate($value)
+  {
     return is_string($value);
   }
 }

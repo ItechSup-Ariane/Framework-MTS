@@ -6,7 +6,8 @@
 
 namespace Itechsup\Form\Widget;
 
-abstract class Widget {
+abstract class Widget
+{
 	/**
 	 * @var the type of Widget.
 	 * Custom types can be implemented
@@ -44,7 +45,8 @@ abstract class Widget {
 	 * @throws InvalidArgumentException
 	 *   Thrown if the $type param was not (properly) implemented
 	 */
-	public function __construct($name, $label, $value = null, $attributes = array()) {
+	public function __construct($name, $label, $value = null, $attributes = array())
+  {
 		$this->name = $name;
 		$this->label = $label;
 		$this->attributes = $attributes;
@@ -53,42 +55,48 @@ abstract class Widget {
 	/**
 	 * @return string
 	 */
-	public function getType() {
+	public function getType()
+  {
 		return $this->type;
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getName() {
+	public function getName()
+  {
 		return $this->name;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function getValue() {
+	public function getValue()
+  {
 		return $this->value;
 	}
 
 	/**
 	 * @param mixed $value
 	 */
-	public function setValue($value) {
+	public function setValue($value)
+  {
 		$this->value = $value;
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getAttributes() {
+	public function getAttributes()
+  {
 		return $this->attributes;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function getAttribute($attribute) {
+	public function getAttribute($attribute)
+  {
 		if (array_key_exists($attribute, $this->attributes)) {
 			return $this->attributes[$attribute];
 		}
@@ -103,7 +111,8 @@ abstract class Widget {
    * @param $value
    *   The value of the attribute.
    */
-  public function setAttribute($name, $value) {
+  public function setAttribute($name, $value)
+  {
     $this->attributes[$name] = $value;
   }
 
@@ -115,11 +124,10 @@ abstract class Widget {
 	 * @return string
 	 *  Widget HTML wrapped in a div
 	 */
-	protected function wrap($widgetHtml) {
+	protected function wrap($widgetHtml)
+  {
 		$output = '<div class="form-widget form-widget-' . $this->type . '">';
-
 		$output .= $this->renderLabel();
-
 		$output .= $widgetHtml;
 		$output .= '</div>';
 
