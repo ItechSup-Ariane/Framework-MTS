@@ -9,7 +9,7 @@
 namespace Itechsup\Form\Validator;
 
 
-interface ValidatorInterface
+interface ChoiceValidatorInterface
 {
-    public function validate($field);
+    public function validate($value, $choices);
 }

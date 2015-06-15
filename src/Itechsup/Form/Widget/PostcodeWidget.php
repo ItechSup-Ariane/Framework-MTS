@@ -12,12 +12,12 @@ namespace Itechsup\Form\Widget;
 class PostcodeWidget extends TextWidget
 {
 
-  /**
-   * @return \Itechsup\Form\Widget\HTML
-   */
-  public function render()
-  {
-    $this->setAttribute('pattern', '([A-Z]+[A-Z]?\-)?[0-9]{1,2} ?[0-9]{3}');
-    return parent::render();
-  }
+    /**
+     * @return \Itechsup\Form\Widget\HTML
+     */
+    public function render()
+    {
+        $this->setAttribute('pattern', '([A-Z]+[A-Z]?\-)?[0-9]{1,2} ?[0-9]{3}');
+        return parent::render();
+    }
 }

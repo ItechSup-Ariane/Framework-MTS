@@ -11,21 +11,17 @@ namespace Itechsup\Form\Validator;
 class UrlValidator implements ValidatorInterface
 {
 
-  /**
-   * Validate a URL string
-   *
-   * @param $value string
-   *  The value to test against.
-   *
-   * @return bool
-   *  Whether the value is a valid URL
-   */
-  public function validate($value)
-  {
-    return filter_var($value, FILTER_VALIDATE_URL);
-//		if (!preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/', $value)) {
-//			return false;
-//		}
-//		return true;
-  }
+    /**
+     * Validate a URL string
+     *
+     * @param $value string
+     *  The value to test against.
+     *
+     * @return bool
+     *  Whether the value is a valid URL
+     */
+    public function validate($value)
+    {
+        return filter_var($value, FILTER_VALIDATE_URL);
+    }
 }

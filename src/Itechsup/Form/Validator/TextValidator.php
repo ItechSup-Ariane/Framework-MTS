@@ -12,17 +12,17 @@ namespace Itechsup\Form\Validator;
 class TextValidator implements ValidatorInterface
 {
 
-  /**
-   * Validates a string value.
-   *
-   * @param $value
-   *   The value to validate.
-   *
-   * @return bool
-   *   Whether the value is valid.
-   */
-  public function validate($value)
-  {
-    return is_string($value);
-  }
+    /**
+     * Validates a string value.
+     *
+     * @param $value
+     *   The value to validate.
+     *
+     * @return bool
+     *   Whether the value is valid.
+     */
+    public function validate($value)
+    {
+        return is_string($value);
+    }
 }

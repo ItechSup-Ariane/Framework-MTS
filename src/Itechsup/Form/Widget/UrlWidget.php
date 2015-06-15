@@ -11,10 +11,10 @@ namespace Itechsup\Form\Widget;
 class UrlWidget extends TextWidget
 {
 
-  protected $type = 'url';
+    protected $type = 'url';
 
-  public function __construct($name, $label, $value = NULL, $attributes = array())
-  {
-    return parent::__construct($name, $label, $value, $attributes);
-  }
+    public function __construct($name, $label, $value = null, $attributes = array())
+    {
+        return parent::__construct($name, $label, $value, $attributes);
+    }
 }
