@@ -13,7 +13,8 @@ class PostcodeWidget extends TextWidget
 {
 
     /**
-     * @return \Itechsup\Form\Widget\HTML
+     * @return string
+     *  The HTML for the widget.
      */
     public function render()
     {

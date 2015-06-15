@@ -41,7 +41,7 @@ class SelectWidget extends ChoiceWidget
 
     public function render()
     {
-        $html = '<select name="' . $this->name . '"';
+        $html = '<select name="' . $this->getName() . '"';
 
         $html .= $this->renderAttributes() . '>';
 

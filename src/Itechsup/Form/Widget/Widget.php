@@ -9,18 +9,21 @@ namespace Itechsup\Form\Widget;
 abstract class Widget
 {
     /**
-     * @var the type of Widget.
-     * Custom types can be implemented
+     * @var $type
+     *  The type of Widget.
+     *  (Custom types can be implemented by extending this class)
      */
     protected $type;
 
     /**
-     * @var the name attribute of the field
+     * @var $name
+     *  The name attribute of the field
      */
     protected $name;
 
     /**
-     * @var the value of the field
+     * @var $value
+     *  The value of the field
      */
     protected $value;
 
@@ -30,7 +33,8 @@ abstract class Widget
     protected $attributes = array();
 
     /**
-     * @var the label of the widget
+     * @var $label
+     * The label of the widget
      */
     protected $label;
 
@@ -42,7 +46,7 @@ abstract class Widget
      * @param array $attributes
      *   (optional) An array of html attributes for the tag
      *
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      *   Thrown if the $type param was not (properly) implemented
      */
     public function __construct($name, $label, $value = null, $attributes = array())
@@ -83,6 +87,15 @@ abstract class Widget
     public function setValue($value)
     {
         $this->value = $value;
+    }
+
+    /**
+     * @return string
+     *  The label string.
+     */
+    public function getLabel()
+    {
+        return $this->label;
     }
 
     /**
@@ -131,7 +144,7 @@ abstract class Widget
      */
     protected function wrap($widgetHtml)
     {
-        $output = '<div class="form-widget form-widget-' . $this->type . '">';
+        $output = '<div class="form-widget form-widget-' . $this->getType() . '">';
 
         $output .= $this->renderLabel();
 
@@ -151,7 +164,7 @@ abstract class Widget
     {
         $output = '';
         if (!empty($this->label)) {
-            $output .= '<label for="' . $this->getAttribute('id') . '">' . $this->label . '</label>';
+            $output .= '<label for="' . $this->getAttribute('id') . '">' . $this->getLabel() . '</label>';
         }
         return $output;
     }

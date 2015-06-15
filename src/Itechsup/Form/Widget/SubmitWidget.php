@@ -17,6 +17,15 @@ class SubmitWidget extends Widget
      * Overloads Widget constructor.
      *
      * Sets an empty label and a default value.
+     *
+     * @param $name
+     *  The HTML element name attribute.
+     * @param string $value (optional)
+     *  The HTML element value attribute (the text displayed in the button)
+     * @param array $attributes (optional)
+     *  An array of HTML attributes for the tag
+     * @param string $label (optional)
+     *  The label for the input. Defaults to nothing
      */
     public function __construct($name, $value = 'Valider', $attributes = array(), $label = '')
     {
@@ -31,7 +40,7 @@ class SubmitWidget extends Widget
      */
     public function render()
     {
-        $output = '<input type="' . $this->type . '" name="' . $this->name . '" value="' . $this->value;
+        $output = '<input type="' . $this->type . '" name="' . $this->getName() . '" value="' . $this->getValue();
 
         $output .= $this->renderAttributes();
 

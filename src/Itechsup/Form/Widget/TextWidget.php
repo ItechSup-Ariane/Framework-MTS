@@ -21,14 +21,15 @@ class TextWidget extends Widget
     /**
      * Render a Widget as a HTML element
      *
-     * @return HTML for the widget, wrapped by $this->wrap()
+     * @return string
+     *  HTML for the widget, wrapped by $this->wrap()
      */
     public function render()
     {
-        $html = '<input type="' . $this->type . '" name="' . $this->name . '"';
+        $html = '<input type="' . $this->type . '" name="' . $this->getName() . '"';
 
         if (!empty($this->value)) {
-            $html .= ' value="' . $this->value . '"';
+            $html .= ' value="' . $this->getName() . '"';
         }
 
         $html .= $this->renderAttributes();
