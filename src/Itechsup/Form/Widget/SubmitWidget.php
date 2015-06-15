@@ -9,7 +9,8 @@
 namespace Itechsup\Form\Widget;
 
 
-class SubmitWidget extends Widget {
+class SubmitWidget extends Widget
+{
   protected $type = 'submit';
 
   /**

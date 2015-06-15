@@ -8,7 +8,8 @@
 
 namespace Itechsup\Form\Widget;
 
-class TextWidget extends Widget {
+class TextWidget extends Widget
+{
 
 	protected $type = 'text';
 
