@@ -6,6 +6,8 @@ class SelectWidget extends ChoiceWidget
 {
     protected $type = 'select';
 
+    protected $isMultipleChoice = false;
+
     public function __construct($name, $label, Array $choices, $value = null, $attributes = array())
     {
         parent::__construct($name, $label, $value, $attributes = array());

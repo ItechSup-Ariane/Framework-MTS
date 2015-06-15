@@ -6,9 +6,9 @@ use \Itechsup\Form\Form;
 use \Itechsup\Form\Widget\TextWidget;
 use \Itechsup\Form\Widget\UrlWidget;
 use \Itechsup\Form\Widget\PostcodeWidget;
-use \Itechsup\Form\Widget\SubmitWidget;
 use \Itechsup\Form\Widget\SelectWidget;
-
+use \Itechsup\Form\Widget\CheckboxesWidget;
+use \Itechsup\Form\Widget\SubmitWidget;
 $form = new Form('test');
 
 $firstnameWidget = new TextWidget('firstname', 'Prénom', null, array(
@@ -34,12 +34,26 @@ $ageRangeWidget = new SelectWidget('age-range', 'Tranche d\'âge', $ageRanges, a
     'id' => 'age-range',
     'class' => 'large',
 ));
+$hobbyChoices = array(
+    'sports',
+    'cinema',
+    'arts',
+    'informatique',
+    'nature',
+    'gastronomie',
+);
+$hobbyChoicesWidget = new CheckboxesWidget('hobbies', 'Centres d\'intérêts', $hobbyChoices, array(), array(
+    'id' => 'hobbies',
+    'class' => 'blah',
+));
+
 $submitWidget = new SubmitWidget('submit', 'Envoyer');
 
 $form->addWidget($firstnameWidget)
     ->addWidget($websiteWidget)
     ->addWidget($postcodeWidget)
     ->addWidget($ageRangeWidget)
+    ->addWidget($hobbyChoicesWidget)
     ->addWidget($submitWidget);
 
 if (!empty($_POST) && isset($_POST)) {

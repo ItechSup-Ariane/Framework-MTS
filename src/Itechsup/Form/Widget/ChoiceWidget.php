@@ -6,14 +6,16 @@ abstract class ChoiceWidget extends Widget
 {
 
     /**
-     * @var the choices that can be selected
+     * @var array
+     *  The choices that can be selected
      */
     protected $choices = array();
 
     /**
-     * @var the chosen options (if any)
+     * @var bool
+     *  If multiple choices can be selected.
      */
-    protected $selectedChoices = array();
+    protected $isMultipleChoice = false;
 
     /**
      * Abstract constructor common to children
@@ -26,21 +28,19 @@ abstract class ChoiceWidget extends Widget
      *   An array of key-value pairs to use for the choice:
      *    - key is the data that will be used to process the form
      *    - value is the string that will be displayed to the user
-     * @param $selectedChoices array (optional)
-     *   An array containing the selected options (or choices).
-     *   The array values are the selected $options keys.
      * @param $attributes array (optional)
      *   An array containing the HTML attributes for the Widget, in a key-value pair fashion.
      */
-    public function __construct($name, $label, Array $choices, $selectedChoices = array(), $attributes = array())
+    public function __construct($name, $label, Array $choices, $attributes = array())
     {
         parent::__construct($name, $label, null, $attributes = array());
         $this->choices = $choices;
-        $this->selectedChoices = $selectedChoices;
     }
 
     /**
      * Return the array of choices
+     *
+     * @return array
      */
     public function getChoices()
     {
@@ -48,10 +48,26 @@ abstract class ChoiceWidget extends Widget
     }
 
     /**
-     * Return the array of selected choices
+     * Loops over the attributes array and builds the corresponding HTML string.
+     * This method must be called after opening the HTML tag and before closing it.
+     * If the Widget allows multiple choices, then we skip the ID attribute
+     *  to keep the HTML valid.
+     *
+     * @return string
+     *   The HTML string of key-value attribute pairs.
      */
-    public function getSelectedChoices()
+    public function renderAttributes()
     {
-        return $this->selectedChoices;
+        $output = ' ';
+        if (!empty($this->attributes) && is_array($this->attributes)) {
+            foreach ($this->attributes as $name => $value) {
+                if ($name == 'id' && $this->isMultipleChoice) {
+                    continue;
+                } else {
+                    $output .= $name . '="' . $value . '" ';
+                }
+            }
+        }
+        return $output;
     }
 }
