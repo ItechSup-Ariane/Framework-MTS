@@ -34,7 +34,7 @@ abstract class ChoiceWidget extends Widget
    */
   public function __construct($name, $label, Array $choices, $selectedChoices = array(), $attributes = array())
   {
-    parent::__construct($name, $label, $value = NULL, $attributes = array());
+    parent::__construct($name, $label, $value = null, $attributes = array());
     $this->choices = $choices;
     $this->selectedChoices = $selectedChoices;
   }
@@ -45,17 +45,6 @@ abstract class ChoiceWidget extends Widget
   public function getChoices()
   {
     return $this->choices;
-  }
-
-  /**
-   * Set the array of available choices
-   *
-   * @param $value
-   *  The array of available choices
-   */
-  public function setChoices($value)
-  {
-    $this->choices = $value;
   }
   /**
    * Return the array of selected choices

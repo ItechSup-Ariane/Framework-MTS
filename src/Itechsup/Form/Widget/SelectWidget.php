@@ -6,6 +6,13 @@ class SelectWidget extends ChoiceWidget
 {
   protected $type = 'select';
 
+  public function __construct($name, $label, Array $choices, $value = null, $attributes = array())
+  {
+    parent::__construct($name, $label, $value, $attributes = array());
+    $this->choices = $choices;
+    $this->selectedChoices = array();
+  }
+
   /**
    * Render a list of HTML options.
    *
@@ -22,8 +29,8 @@ class SelectWidget extends ChoiceWidget
     foreach ($this->choices as $key => $value) {
       $output .= '<option value="' . $key . '" ';
 
-      if (in_array($key, $this->selectedChoices)) {
-        $output .= 'selected ';
+      if ($key == $this->getValue()) {
+        $output .= 'selected="selected" ';
       }
       $output .= '>' . $value;
       $output .= '</option>';
