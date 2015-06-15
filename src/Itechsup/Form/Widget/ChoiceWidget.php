@@ -26,7 +26,7 @@ abstract class ChoiceWidget extends Widget
    *   An array of key-value pairs to use for the choice:
    *    - key is the data that will be used to process the form
    *    - value is the string that will be displayed to the user
-   * @param $selectedValues array (optional)
+   * @param $selectedChoices array (optional)
    *   An array containing the selected options (or choices).
    *   The array values are the selected $options keys.
    * @param $attributes array (optional)
@@ -40,23 +40,30 @@ abstract class ChoiceWidget extends Widget
   }
 
   /**
-   * Return the array of options
+   * Return the array of choices
    */
-  public function getOptions()
+  public function getChoices()
   {
-    return $this->options;
+    return $this->choices;
   }
 
   /**
-   * Return the array of selected options
+   * Set the array of available choices
+   *
+   * @param $value
+   *  The array of available choices
+   */
+  public function setChoices($value)
+  {
+    $this->choices = $value;
+  }
+  /**
+   * Return the array of selected choices
    */
   public function getSelectedChoices()
   {
     return $this->selectedChoices;
   }
 
-  public function setValue($value)
-  {
-    $this->options = $value;
-  }
+
 }

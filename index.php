@@ -7,6 +7,7 @@ use \Itechsup\Form\Widget\TextWidget;
 use \Itechsup\Form\Widget\UrlWidget;
 use \Itechsup\Form\Widget\PostcodeWidget;
 use \Itechsup\Form\Widget\SubmitWidget;
+use \Itechsup\Form\Widget\SelectWidget;
 
 $form = new Form('test');
 
@@ -22,11 +23,23 @@ $postcodeWidget = new PostcodeWidget('postcode', 'Code postal', null, array(
   'id' => 'postcode',
   'class' => 'blublu',
 ));
+$ageRanges = array(
+  '0-19 ans',
+  '20-39 ans',
+  '40-59 ans',
+  '60-74 ans',
+  '75 ans et plus',
+);
+$ageRangeWidget = new SelectWidget('age-range', 'Tranche d\'âge', $ageRanges, array(), array(
+  'id' => 'age-range',
+  'class' => 'large',
+));
 $submitWidget = new SubmitWidget('submit', 'Envoyer');
 
 $form->addWidget($firstnameWidget)
   ->addWidget($websiteWidget)
   ->addWidget($postcodeWidget)
+  ->addWidget($ageRangeWidget)
   ->addWidget($submitWidget);
 
 if (!empty($_POST) && isset($_POST)) {

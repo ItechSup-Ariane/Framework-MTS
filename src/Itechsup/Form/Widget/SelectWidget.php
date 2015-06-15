@@ -19,12 +19,14 @@ class SelectWidget extends ChoiceWidget
   {
     $output = '';
 
-    foreach ($this->options as $key => $value) {
-      $output .= '<option value="' . $value . '" ';
+    foreach ($this->choices as $key => $value) {
+      $output .= '<option value="' . $key . '" ';
 
       if (in_array($key, $this->selectedChoices)) {
         $output .= 'selected ';
       }
+      $output .= '>' . $value;
+      $output .= '</option>';
     }
     return $output;
   }
