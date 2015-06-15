@@ -1,0 +1,17 @@
+{
+  "name": "Itechsup/Questionnaire",
+  "description": "Constructeur de questionnaire ItechSup",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Michel Tomas",
+      "email": "michel@superbiche.me"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "Itechsup": "src/"
+    }
+  }
+}
